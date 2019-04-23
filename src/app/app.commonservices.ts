@@ -19,11 +19,14 @@ export class Commonservices {
     constructor(private http: HttpClient) {
       //  this.url = 'http://132.148.90.242/server.php?q=';
        this.url = 'http://132.148.90.242:3031/';
-        this.uploadurl = 'http://badmin.givbux.online/php/index.php';
+       this.uploadurl = 'http://132.148.90.242:3031/uploads';
+        //this.uploadurl = 'http://badmin.givbux.online/php/index.php';
         // this.uploadurl = 'http://132.148.90.242:3031/';
         this.filedeleteurl = 'http://emponboarding.westcoastvg.online/php/scrappage.php';
-        this.fileurl = 'https://badmin.givbux.online/php/uploads/';
-        this.filepathurl = 'https://badmin.givbux.online/php/uploads/';
+        //this.fileurl = 'https://badmin.givbux.online/php/uploads/';
+        this.fileurl = 'http://givbux.420mny.com/nodeserver/images/';
+        //this.filepathurl = 'https://badmin.givbux.online/php/uploads/';
+        this.filepathurl = 'http://givbux.420mny.com/nodeserver/images/';
         this.base64encode = 'https://badmin.givbux.online/php/index.php?encode=encodefile';
         // this.base64encode = 'http://132.148.90.242/uploads/';
         //this.url = 'http://emponboarding.westcoastvg.online/server2.php?q=';

@@ -211,6 +211,8 @@ export class ListingComponent implements OnInit {
         .subscribe(res => {
           let result;
           result = res;
+          console.log('result.res');
+          console.log(result.res);
             this.formdataval[c].sourceval = result.res;
         }, error => {
             console.log('Oooops!');
@@ -423,19 +425,24 @@ export class ListingComponent implements OnInit {
         if(this.selectedFile==null) this.selectedFile=0;
         uploadData.append('file', this.selectedFile);
         uploadData.append('base64data', this.croppedImage[i]);
-        const link = this._commonservice.uploadurl+'?imagefolder='+control.imagefolder;
+        const link = this._commonservice.uploadurl;
         this._http.post(link,uploadData)
             .subscribe(event => {
                 let res: any = {};
                 res = event;
-                if(res.error_code == 0){
+                console.log('res');
+                console.log(res);
+
+                if(res.error_code ==0){
+                    console.log('this.dataForm.controls');
+                    console.log(this.dataForm.controls);
                     this.dataForm.controls[control.name].patchValue(res.filename);
-                    this.formdataval[i].filename=control.imagefolder+'/'+res.filename;
+                    this.formdataval[i].filename=res.filename;
                     this.modalRef1=this.modal.show(template);
                     this.message='Image Saved Successfully !!';
                     setTimeout(() => {
                         this.modalRef1.hide();
-                    }, 5000);
+                    }, 3000);
                 }
             });
     }
