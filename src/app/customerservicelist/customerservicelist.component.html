@@ -1,0 +1,83 @@
+<app-adminheader></app-adminheader>
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content_header_block">
+        <ol class="breadcrumb">
+          <li><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="javascript:void(0)" class="active">Manage Customer </a></li>
+
+        </ol>
+        <div class="clearfix"></div>
+      </div>
+      <h1 class="page-header"><i class="fa fa-circle" aria-hidden="true"></i> Manage Customer</h1>
+
+      <div class="clearfix"></div>
+
+      <div class="content_header_block">
+        <div class="clearfix"></div>
+
+        <div class="newblock1">
+
+          <input type="text" name="search" ng-model="searchkey" class="search1" placeholder="Search customer">
+
+         <a [routerLink]="['/addcustomer']" class="addfrinderbtn">Add Customer</a>
+        <!-- <a [routerLink]="['/addadmin']" class="addfrinderbtn"> Add Admin</a>&ndash;&gt;-->
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+      <div class="admintable">
+        <h3> Manage customer List</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr >
+              <th scope="col">#</th>
+              <th scope="col">First name</th>
+              <th scope="col">Last name</th>
+              <th scope="col">Email Id</th>
+              <th scope="col">Mobile No</th>
+              <th scope="col">Notes</th>
+              <th scope="col">Action</th>
+
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of customertlist; let i = index">
+              <td>{{i+1}}</td>
+              <td>{{item.firstname}}</td>
+              <td >{{item.lastname}}</td>
+              <td >{{item.email}}</td>
+              <td >{{item.notes}}</td>
+              <td >{{item.mobileno}}</td>
+              <td ><span class="deletebtn" (click)="deletecustomer(item._id,template)">Delete</span>
+                 <span class="deletebtn" [routerLink]="['/addcustomer',item._id]">Edit</span>
+              </td>
+
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-adminfooter></app-adminfooter>
+<ng-template #template>
+  <div class="modal-body">
+    <h1>Do you want to delete?</h1>
+    <button type="button" class="btn btn-default" (click)="delete(customerid,templatecommon)" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+
+<ng-template #templatecommon>
+  <div class="modal-body">
+    <h1>{{message}}</h1>
+
+  </div>
+</ng-template>

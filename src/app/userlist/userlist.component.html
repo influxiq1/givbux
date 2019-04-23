@@ -1,0 +1,137 @@
+<app-adminheader></app-adminheader>
+
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content_header_block">
+        <ol class="breadcrumb">
+          <li><a ui-sref="dashboard">Dashboard</a></li>
+          <li><a href="javascript:void(0)" class="active">Manage User </a></li>
+
+        </ol>
+        <div class="clearfix"></div>
+      </div>
+      <h1 class="page-header"><i class="fa fa-circle" aria-hidden="true"></i> Manage User</h1>
+
+      <div class="clearfix"></div>
+
+      <div class="content_header_block">
+        <div class="clearfix"></div>
+
+        <div class="newblock1 hide">
+
+          <input type="text" name="search" ng-model="searchkey" class="search1" placeholder="Search Admin">
+
+          <a [routerLink]="['/addadmin']" class="addfrinderbtn"> Add User</a>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+
+
+
+      <div class="admintable">
+        <h3> Manage User List</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr >
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Email</th>
+              <th scope="col">Mobileno.</th>
+              <th scope="col">Date of Joining</th>
+              <th scope="col">Login_Status</th>
+
+
+              <!--<th scope="col">Action.</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of userlist; let i = index">
+              <td >{{i+1}}</td>
+              <td >{{item.name}}</td>
+              <td >{{item.email}}</td>
+              <td >{{item.phone}}</td>
+              <td >{{item.datejoined}}</td>
+              <td >
+                <span *ngIf="item.isloggedin!=1">Device Logged Out</span>
+                <span *ngIf="item.isloggedin==1">Device Logged In</span>
+              </td>
+              <!--<td (click)="deleteadmin(item._id,template)"><span class="deletebtn">Delete</span></td>-->
+            </tr>
+            <!-- <tr>
+               <td>2</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>3</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>4</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>5</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>-->
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<app-adminfooter></app-adminfooter>
+<ng-template #template>
+  <div class="modal-body">
+    <h1>Do you want to delete?</h1>
+    <button type="button" class="btn btn-default" (click)="delete(selectedadminid,templatecommon)" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+
+<ng-template #templatecommon>
+  <div class="modal-body">
+    <h1>{{message}}</h1>
+
+  </div>
+</ng-template>-->

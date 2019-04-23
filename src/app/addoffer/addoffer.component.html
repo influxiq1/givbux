@@ -1,0 +1,77 @@
+<app-adminheader></app-adminheader>
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content_header_block">
+        <ol class="breadcrumb">
+          <li><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="javascript:void(0)" class="active">Manage Offer </a></li>
+          <li *ngIf="id==0 || id==null"><a href="javascript:void(0)" class="active">Add Offer </a></li>
+          <li *ngIf="id!=0 && id!=null"><a href="javascript:void(0)" class="active">Edit Offer </a></li>
+
+        </ol>
+        <div class="clearfix"></div>
+      </div>
+      <h1 class="page-header"><i class="fa fa-circle" aria-hidden="true"></i>  Manage Offer</h1>
+      <div class="clearfix"></div>
+      <div class="admintable">
+        <h3 *ngIf="id==0 || id==null"> Add Offer</h3>
+        <h3 *ngIf="id!=0 && id!=null"> Edit Offer</h3>
+        <div class="formsection">
+          <h6 class="form-grouptext"> All the fields marked "*" are required fields and must be filled.</h6>
+
+          <form id="add_Offer" name="add_Offer" role="form"  novalidate [formGroup]="dataform" (ngSubmit)="dosubmit(dataform.value)">
+            <div class="box-body">
+              <div class="form-group">
+                <label >Offer Name<span>*</span> :</label>
+                <input type="text" class="form-control" placeholder="Offer Name" [formControl]="dataform.controls['offername']">
+                <input type="hidden" class="form-control" placeholder="Brand Name" [formControl]="dataform.controls['id']">
+                <span class="error" *ngIf="!dataform.controls['offername'].valid && dataform.controls['offername'].touched">Offer Name field can not be blank</span>
+              </div>
+              <div class="form-group">
+                <div class="s_getmyoffer_uploaded_image" (click)="fileInput.click()">
+                  <button type="button" class="s_getmyoffer_uploadButton">Upload Offer Logo</button>
+                  <input style="display: none" type="file" (change)="onFileChanged($event)" #fileInput>
+                  <span class="error" *ngIf="!dataform.controls['image'].valid && dataform.controls['image'].touched">Please upload Offer Logo</span>
+                </div><br>
+                <div class="col-md-4 imguploadsuccess" *ngIf="image">
+                  <img style="width: 100%" src="{{image}}" >
+                  <button class="s_getmyoffer_image_crop"><span>Crop Logo </span> </button>
+                </div>
+                <div class="clear"></div>
+                <span class="has-error" *ngIf ="imageserror"> Upload logo here</span>
+              </div>
+              <div class="form-group">
+                <label >Description<span>*</span> :</label>
+                <textarea type="description" class="form-control" placeholder="Description" [formControl]="dataform.controls['description']"></textarea>
+                <span class="error" *ngIf="!dataform.controls['description'].valid && dataform.controls['description'].touched">Description field can not be blank</span>
+              </div>
+              <div class="form-group">
+                <label >Brand<span>*</span> :</label>
+                <select  class='form-control' [formControl]="dataform.controls['brandid']">
+                  <option value="">Select a brand</option>
+                  <option  *ngFor="let item of brandlist" [ngValue]="item._id">{{item.brandname}}</option>
+                  <!--<option value='46'>46</option>-->
+                  <!--<option value='45'>45</option>-->
+                </select>
+
+              </div>
+              <div class="form-group">
+                <label >Commision Rule<span>*</span> :</label>
+                <input type="text" class="form-control" placeholder="Commision Rule" [formControl]="dataform.controls['commisionrule']">
+                <span class="error" *ngIf="!dataform.controls['commisionrule'].valid && dataform.controls['commisionrule'].touched">Commision Rule field can not be blank</span>
+              </div>
+            </div>
+            <div class="box-footer" style="background:none; height:auto; padding-bottom:0px; padding-top:0px;">
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-adminfooter></app-adminfooter>
+
+
+

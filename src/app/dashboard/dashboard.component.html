@@ -1,0 +1,217 @@
+<div style="width:100vw; height:100vh; display:table-cell; vertical-align:middle; text-align:center;" *ngIf="showLoader==1">
+
+  <img src="assets/images/logo.png"  alt="#" style="margin:0 auto; display: block; margin-bottom:30px; max-width: 280px;"/>
+
+  <div class="loader"></div>
+
+
+</div>
+
+<app-adminheader></app-adminheader>
+
+
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><i class="fa fa-circle" aria-hidden="true"></i> Dashboard</h1>
+      <section class="content">
+        <a class="row">
+          <div class="col-lg-3 col-xs-6 dbadminbox">
+            <div class="small-box bg-gray" ui-sref="dashboard">
+              <div class="inner">
+                <h3>Dashboard</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon1.png" alt="#">
+              </div>
+              <a [routerLink]="['/']" ui-sref="index"  class="db_adminlink">More info </a>
+            </div>
+          </div>
+
+
+
+          <div *ngIf="type=='admin'" class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/admin1']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="manage_admin ">
+              <div class="inner">
+                <h3>Manage Admin </h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon9.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>
+
+
+
+          <div *ngIf="type=='admin' || type=='Customerservice'" class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/userlist']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="admin-list">
+              <div class="inner">
+                <h3>Manage User</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon2.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>
+
+          <div *ngIf="type=='admin' " class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/customerservicelist1']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="admin-list">
+              <div class="inner">
+                <h3>Manage Customer Service</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon3.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>
+
+          <div *ngIf="type=='admin' " class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/sitesetting']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="admin-list">
+              <div class="inner">
+                <h3>Manage Site Settings</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon4.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>
+
+          <div *ngIf="type=='admin'" class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/brandmanagement1']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="admin-list">
+              <div class="inner">
+                <h3>Brand Management</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon5.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/campaign']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-srif="admin-list">
+              <div class="inner">
+                <h3>Campaign Management</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon6.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info</span>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/offer1']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-srif="admin-list">
+              <div class="inner">
+                <h3>Offer Management</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon7.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info</span>
+            </div>
+          </div>
+
+          <div *ngIf="type=='admin' || type=='brand'" class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/tracklist']" style="cursor:pointer">
+            <div class="small-box bg-gray" ui-sref="Manage_company">
+              <div class="inner">
+                <h3>Track Report</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon10.png" alt="#">
+              </div>
+              <a href="javascript:void(0);" class="db_adminlink">More info </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-6 dbadminbox" style="cursor:pointer">
+            <div class="small-box bg-gray" (click)="logout()">
+              <div class="inner">
+                <h3>Log Out</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon8.png" alt="#">
+              </div>
+              <span class="db_adminlink">more info</span>
+            </div>
+          </div>
+<!--
+          <div class="col-lg-3 col-xs-6 dbadminbox" >
+            <div class="small-box bg-gray" ui-sref="manage_onboarding_process" [routerLink]="['/categorylist']" style="cursor:pointer">
+              <div class="inner">
+                <h3> Manage Onboarding Process</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon4.png" alt="#">
+              </div>
+              <a href="javascript:void(0);" class="db_adminlink">More info </a>
+            </div>
+          </div>
+
+
+
+          <div class="col-lg-3 col-xs-6 dbadminbox">
+            <div class="small-box bg-gray" ui-sref="onboarding_report">
+              <div class="inner">
+                <h3>Onboarding Report</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon5.png" alt="#">
+              </div>
+              <a href="javascript:void(0);" class="db_adminlink">More info </a>
+            </div>
+          </div>
+
+          <div class="col-lg-3 col-xs-6 dbadminbox">
+            <div class="small-box bg-gray" ui-sref="documentlist({id:0})">
+              <div class="inner">
+                <h3>Manage Email</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon6.png" alt="#">
+              </div>
+              <a href="javascript:void(0);" class="db_adminlink">More info </a>
+            </div>
+          </div>
+
+
+
+
+          <div class="col-lg-3 col-xs-6 dbadminbox" [routerLink]="['/myaccount']" style="cursor: pointer">
+            <div class="small-box bg-gray" ui-sref="my_account">
+              <div class="inner">
+                <h3> My Account</h3>
+              </div>
+              <div class="db_newicon">
+                <img src="assets/images/db_icon7.png" alt="#">
+              </div>
+              <span class="db_adminlink">More info </span>
+            </div>
+          </div>-->
+
+          <!--<div class="col-lg-3 col-xs-6 dbadminbox">-->
+            <!--<div class="small-box bg-gray" ng-click="logout()">-->
+              <!--<div class="inner">-->
+                <!--<h3>Log out</h3>-->
+              <!--</div>-->
+              <!--<div class="db_newicon">-->
+                <!--<img src="assets/images/db_icon8.png" alt="#">-->
+              <!--</div>-->
+              <!--<a [routerLink]="['/login']" class="db_adminlink">More info </a>-->
+            <!--</div>-->
+          <!--</div>-->
+        </a>
+      </section>
+
+
+    </div>
+    <!-- /.col-lg-12 -->
+  </div>
+</div>
+
+
+<app-adminfooter></app-adminfooter>

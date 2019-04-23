@@ -1,0 +1,13 @@
+<app-adminheader></app-adminheader>
+<div class="s_getmyoffer_adminpanel">
+  <div class="s_getmyoffer_adminpanel_inner">
+    <div class="s_getmyoffer_adminpanel_inner_content_left">
+     <!-- <app-adminleft></app-adminleft>-->
+    </div>
+    <div class="s_getmyoffer_adminpanel_inner_content_right myadminlist">
+      <app-listing class="mycampaignmanagementlist" templatetype="table" sourcetitle="Campaign" source="campaign_view" [sourcecondition]="sourcecondition" [tabledatalis]="tabledatalis" menuval="Campaign List " [formdata]="formdata" [formsource]="datasource">
+      </app-listing>
+    </div>
+  </div>
+</div>
+<app-adminfooter></app-adminfooter>

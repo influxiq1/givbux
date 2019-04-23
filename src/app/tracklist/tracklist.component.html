@@ -1,0 +1,137 @@
+<app-adminheader></app-adminheader>
+
+<div class="page-wrapper">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="content_header_block">
+        <ol class="breadcrumb">
+          <li><a ui-sref="dashboard"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li><a href="javascript:void(0)" class="active">Track Report </a></li>
+
+        </ol>
+        <div class="clearfix"></div>
+      </div>
+      <h1 class="page-header"><i class="fa fa-circle" aria-hidden="true"></i> Track Report</h1>
+
+      <div class="clearfix"></div>
+
+      <div class="content_header_block">
+        <div class="clearfix"></div>
+
+        <div class="newblock1 hide">
+
+          <input type="text" name="search" ng-model="searchkey" class="search1" placeholder="Search Admin">
+
+          <a [routerLink]="['/addadmin']" class="addfrinderbtn"> Add User</a>
+
+          <div class="clearfix"></div>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+
+
+
+
+      <div class="admintable">
+        <h3> Track Report</h3>
+        <div class="table-responsive">
+          <table class="table">
+            <thead>
+            <tr >
+              <th scope="col">Id</th>
+              <th scope="col">Name</th>
+              <th scope="col">Latitude</th>
+              <th scope="col">Longitude</th>
+              <th scope="col">Tracked Add</th>
+              <th scope="col">Tracked Location</th>
+              <th scope="col">Tracked Time</th>
+
+
+
+              <!--<th scope="col">Action.</th>-->
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let item of tracklist; let i = index">
+              <td >{{i+1}}</td>
+              <td >{{item.name}}</td>
+              <td >{{item.latdata}}</td>
+              <td>{{item.londata}}</td>
+              <td >{{item.trackablename}}</td>
+              <td >{{item.address}}</td>
+              <td >{{unixtodatetimeConverter(1,item.addedtime/1000)}}</td>
+              <!--<td (click)="deleteadmin(item._id,template)"><span class="deletebtn">Delete</span></td>-->
+            </tr>
+            <!-- <tr>
+               <td>2</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>3</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>4</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>
+             <tr>
+               <td>5</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td>Cell</td>
+               <td><a href="javascript:void(0);">Cell</a></td>
+             </tr>-->
+            </tbody>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--
+<app-adminfooter></app-adminfooter>
+<ng-template #template>
+  <div class="modal-body">
+    <h1>Do you want to delete?</h1>
+    <button type="button" class="btn btn-default" (click)="delete(selectedadminid,templatecommon)" >Yes</button>
+    <button type="button" class="btn btn-primary" (click)="decline()" >No</button>
+  </div>
+</ng-template>
+
+<ng-template #templatecommon>
+  <div class="modal-body">
+    <h1>{{message}}</h1>
+
+  </div>
+</ng-template>-->
